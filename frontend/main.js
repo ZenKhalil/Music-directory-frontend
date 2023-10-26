@@ -242,8 +242,69 @@ function navigateToTracksPage(event) {
     removeCreateArtistButton();
     if (event) event.preventDefault();
     setupPageContent('tracks', 'Search for tracks...');
-    fetchTracks();
+
+      // Create a container for tracks
+  const trackContainer = document.createElement("div");
+  trackContainer.id = "tracks";
+  document.getElementById("content").appendChild(trackContainer);
+
+  // Create and append the album dropdown
+  createAlbumDropdown(albums);
+
+  fetchTracks();
 }
+
+function createAlbumDropdown(albums) {
+  const contentDiv = document.getElementById("content");
+
+  // Create a container for the dropdown
+  const dropdownContainer = document.createElement("div");
+  dropdownContainer.classList.add("dropdown-container");
+
+  // Create a label and dropdown for albums
+  const albumLabel = document.createElement("label");
+  albumLabel.innerText = "Filter by Album:";
+  const albumDropdown = document.createElement("select");
+  albumDropdown.id = "albumDropdown";
+
+  // Add an option to show all tracks
+  const allOption = document.createElement("option");
+  allOption.value = "all";
+  allOption.innerText = "All Albums";
+  albumDropdown.appendChild(allOption);
+
+  // Add options for each album
+  albums.forEach((album) => {
+    const option = document.createElement("option");
+    option.value = album.id;
+    option.innerText = album.title;
+    albumDropdown.appendChild(option);
+  });
+
+ // Append the label and dropdown to the dropdown container
+    dropdownContainer.appendChild(albumLabel);
+    dropdownContainer.appendChild(albumDropdown);
+
+    // Insert the dropdown container at the top of the content div
+    contentDiv.insertBefore(dropdownContainer, contentDiv.firstChild);
+
+  // Add an event listener to the dropdown to filter tracks when an album is selected
+  albumDropdown.addEventListener("change", function () {
+    const selectedAlbumId = this.value;
+    if (Array.isArray(tracks)) {
+      let filteredTracks; // Declare the variable here
+      if (selectedAlbumId === "all") {
+        displayTracks(tracks);
+      } else {
+        filteredTracks = tracks.filter(
+          (track) => track.album_id === parseInt(selectedAlbumId)
+        );
+        displayTracks(filteredTracks);
+      }
+    }
+  });
+}
+
 
 // Få en unik liste over genrer
 function getUniqueGenres() {
