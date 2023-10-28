@@ -20,9 +20,6 @@
 ## Description
 This project is a music directory that allows users to explore various artists, their albums, and tracks. Dive into the world of music and discover something new today!
 
-## Link to site
-https://music-directory.azurewebsites.net/
-
 ## Technologies
 - HTML
 - CSS
@@ -30,12 +27,17 @@ https://music-directory.azurewebsites.net/
 
 ## Setup
 
-#### Frontend Setup:
-1. Clone the frontend repository to your local machine.
-2. Open `index.html` in your browser.
+## Link to server site
+https://music-directory.azurewebsites.net/
 
-Ensure that both the backend and frontend are running simultaneously for the application to work correctly.
+### If you're using both the backend and frontend:
 
+#### Backend Setup:
+1. Clone the backend repository to your local machine.
+2. Install the required packages (assuming you have `npm` installed):
+   - npm install
+4. Start the backend server:
+   - node app.js
 
 ## Features
 ### Navigation and Session Management
