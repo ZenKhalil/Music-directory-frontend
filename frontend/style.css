@@ -101,13 +101,14 @@ nav a:hover {
     cursor: pointer;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+    padding: 20px;
 }
 
 .favorites-page, .genre-page {
     display: grid;
     cursor: pointer;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 81px;
+    gap: 1px;
 }
 
 .artist-grid-container {
@@ -200,21 +201,18 @@ nav a:hover {
 
 .favorites-page h2 {
     font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    position: fixed;
-    max-width: 1368px;
-    margin: 0rem auto 0;
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
     letter-spacing: 2px;
     color: #ffffff;
     background: linear-gradient(45deg, #555555, #c26262);
-    padding: 396px -207px;
+    padding: 20px; /* Adjust as needed */
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 .artist-card:hover, .album:hover, .track:hover {
     transform: translateY(-10px);
@@ -572,14 +570,17 @@ footer {
     background-color: #33333341;
     color: white;
     text-align: center;
+   position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
-    height: 45px; 
+    z-index: 1000;
 }
 
 footer p {
     margin: 0; 
     padding: 0;  
-    line-height: 45px; 
+    line-height: 25px; 
 }
 
 .album-cover {
